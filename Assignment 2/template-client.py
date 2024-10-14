@@ -14,7 +14,7 @@ def main():
         else:
             raise ValueError
     except:
-        host = host or "127.0.0.1"
+        host = "127.0.0.1"
         port = 8080
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -22,15 +22,17 @@ def main():
         print("Connected to the server")
         while True:
             try:
-                data = input("Enter a message: ")
+                data = input("Enter a message and to end the talk with server type 'end' = ")
             except:
                 data = "end"
-            s.sendall(data.encode())
+            # Send the message to the server
+            s.sendall(data.encode())  # Convert message to bytes and send
+
             print("Message sent")
             if data == "end":
                 break
             response = s.recv(1024)
-            print(f"Received: {response.decode()}")
+            print(f"Received this from server: {response.decode()}")
         print("Closing connection")
 
 
