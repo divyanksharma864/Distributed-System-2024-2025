@@ -37,7 +37,7 @@ def operator_commands():
     global connected_users
     while True:
         command = input()
-        if command.lower() == "num users":
+        if command.lower() == "num_users":
             with user_lock:
                 print(f"Number of connected users: {connected_users}")
         elif command.lower() == "exit":
