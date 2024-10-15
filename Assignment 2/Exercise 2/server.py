@@ -18,7 +18,7 @@ def handle_client(conn, addr):
         
         print(f"Message from {message.fr} to {message.to}: {message.msg}")
 
-        # Confirmation sent back to the client
+        # echoing message back to client 
         conn.send(data)
 
     conn.close()

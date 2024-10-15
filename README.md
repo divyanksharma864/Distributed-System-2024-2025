@@ -48,3 +48,5 @@ protobuf jar in the folder!
 1 string value and 2 interger value
 
 Assume it as client is a courier man that delivers package(in this case message) to destination address ie.. server
+
+s

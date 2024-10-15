@@ -3,7 +3,7 @@ from sys import argv
 from threading import Thread, Lock
 import sys
 
-# this is like shared resource
+# shared resource
 connected_users = 0
 user_lock = Lock()
 
@@ -28,23 +28,21 @@ def handle_client(conn, addr):
             # if data == b"exit":
             #     break
             conn.sendall(data)  
-        # Decrement the user count safely
+
+        # Decrementing the user count when comming out of the loop
         with user_lock:
             connected_users = connected_users - 1
         print(f"Closing connection to {addr}")
 
-def operator_commands():
+def operating_commands():
     global connected_users
     while True:
         command = input()
         if command.lower() == "num_users":
             with user_lock:
-                print(f"Number of connected users: {connected_users}")
-        elif command.lower() == "exit":
-            print("Shutting down the server.")
-            sys.exit(0) 
+                print(f"Number of connected client terminals: {connected_users}")
         else:
-            print("Unknown command. Available commands: 'num users', 'exit'")
+            print("Unknown commands, available commands are 'num_users', 'end'")
 
 
 def main():
@@ -53,9 +51,8 @@ def main():
     except:
         port = 8080
 
-      # Start the operator thread
-    operator_thread = Thread(target=operator_commands)
-    operator_thread.start()
+    operating_thread = Thread(target=operating_commands)
+    operating_thread.start()
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(("0.0.0.0", port))
