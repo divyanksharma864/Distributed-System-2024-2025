@@ -5,7 +5,7 @@ import msgFormat_pb2  # the generated protobuf message class
 HOST = "127.0.0.1"
 PORT = 8080
 
-def handle_client(conn, addr):
+def client(conn, addr):
     print(f"{addr} has connected.")
     while True:
         data = conn.recv(1024)
@@ -32,7 +32,7 @@ def main():
     
     while True:
         conn, addr = server.accept()
-        thread = Thread(target=handle_client, args=(conn, addr))
+        thread = Thread(target=client, args=(conn, addr))
         thread.start()
 
 if __name__ == "__main__":

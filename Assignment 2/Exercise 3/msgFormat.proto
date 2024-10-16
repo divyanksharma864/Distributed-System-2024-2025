@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message Message {
+    int32 fr = 1;  // Sender ID
+    int32 to = 2;  // Receiver ID
+    string msg = 3;  // Message content
+}
+
+message Handshake {
+    int32 id = 1;    // Handshake ID
+    bool error = 2;  // Error flag
+}
