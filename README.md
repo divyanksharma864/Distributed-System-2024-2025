@@ -49,4 +49,7 @@ protobuf jar in the folder!
 
 Assume it as client is a courier man that delivers package(in this case message) to destination address ie.. server
 
-s
+Exercise 3 - To introduce a hand shake protocol between server and client.
+
+Its like having a handshake before starting the communication like we humans do.
+Just to let server and client know that they are connected.
