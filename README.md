@@ -54,3 +54,22 @@ Exercise 3 - To introduce a hand shake protocol between server and client.
 Its like having a handshake before starting the communication like we humans do.
 Just to let server and client know that they are connected.
 
+Assignment 3 Exercise 1 - Implement client-to-client messages, that is, a client should be able to send a message to another client via the server.
+To test the message passing, run the server and two or more clients and send messages between the clients. The
+format for user input on the client should be “[id] [msg]”, e.g., “3 Hi there!” sends the message “Hi there!” to client 3.
+To make things easier you can have the client id be a running argument, similar to the port number on the Server’s
+starting point code. If a message is sent to a nonexistent client the message should be dropped by the server, without
+an exception being thrown.
+
+Here there will be many clients and they will be assigned Id's based on the sequence they are joining and clients will talk to each other like:
+#Client 0:
+3 Hi
+
+#Client 1:
+
+#Client 2:
+
+#Client 3:
+Received Hi from 0 to 3
+
+template-server.py - He is like monitoring, looking, coordinating the communications between all the connected clients and it will also show you number of users/clients currently connected using "num_users".
